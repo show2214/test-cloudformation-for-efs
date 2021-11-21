@@ -1,0 +1,19 @@
+Parameters:
+  Vpc:
+    Type: AWS::EC2::VPC::Id
+    Description: Vpc Name.
+Resources:
+  NfsSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      VpcId:
+        Ref: Vpc
+      GroupDescription: Security group for NFS
+      SecurityGroupIngress:
+      - IpProtocol: tcp
+        FromPort: '2049'
+        ToPort: '2049'
+        CidrIp: 0.0.0.0/0
+      Tags:
+      - Key: Name
+        Value: NfsSecurityGroup
