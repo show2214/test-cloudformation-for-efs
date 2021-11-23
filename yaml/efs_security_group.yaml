@@ -17,3 +17,12 @@ Resources:
       Tags:
       - Key: Name
         Value: NfsSecurityGroup
+Outputs:
+  NfsSecurityGroupId:
+    Description: Security group for NFS.
+    Value:
+      'Fn::GetAtt':
+        - NfsSecurityGroup
+        - GroupId
+    Export:
+      Name: NfsSecurityGroupId

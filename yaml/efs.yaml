@@ -9,8 +9,6 @@ Parameters:
     Description: The SubnetId in your Virtual Private Cloud (VPC)
   AvailabilityZone:
     Type: AWS::EC2::AvailabilityZone::Name
-  SecurityGroup:
-    Type: AWS::EC2::SecurityGroup::Id
 Resources:
   NfsBatch:
     Type: AWS::EFS::FileSystem
@@ -34,4 +32,4 @@ Resources:
       SubnetId:
         Ref: Subnet
       SecurityGroups: 
-        - Ref: SecurityGroup
+        - Fn::ImportValue: NfsSecurityGroupId
